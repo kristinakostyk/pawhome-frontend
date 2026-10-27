@@ -1,0 +1,392 @@
+
+:root {
+    --green: #315c4c;
+    --dark: #24362e;
+    --cream: #fffaf3;
+    --light-green: #edf4e9;
+    --orange: #f2bb85;
+    --gray: #6e7872;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: var(--dark);
+    background: var(--cream);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* Шапка сайту */
+
+.header {
+    background: white;
+    border-bottom: 1px solid #eeeeee;
+    padding: 18px 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    color: var(--green);
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.header nav {
+    display: flex;
+    gap: 30px;
+}
+
+.header nav a {
+    font-weight: 600;
+}
+
+.header nav a:hover {
+    color: var(--green);
+}
+
+/* Головний банер */
+
+.hero {
+    background: linear-gradient(135deg, #e5f0df, #fff0de);
+    padding: 90px 0;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero-label,
+.section-label {
+    color: var(--green);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.hero h1 {
+    font-size: clamp(34px, 5vw, 57px);
+    line-height: 1.2;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    color: var(--green);
+}
+
+.hero p {
+    color: var(--gray);
+    font-size: 17px;
+    max-width: 520px;
+    margin-bottom: 35px;
+}
+
+.primary-button,
+.search-button {
+    background: var(--green);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 28px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.primary-button:hover,
+.search-button:hover {
+    background: #234536;
+}
+
+.hero-decoration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 310px;
+    background: #ffffff9c;
+    border: 3px solid white;
+    border-radius: 35px;
+    font-size: 95px;
+    box-shadow: 0 15px 45px #315c4c16;
+}
+
+/* Каталог тварин */
+
+.catalog-section {
+    padding: 85px 0;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    font-size: 36px;
+    margin: 10px 0;
+}
+
+.section-heading p {
+    color: var(--gray);
+}
+
+/* Пошук та фільтри */
+
+.filters {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto auto;
+    gap: 12px;
+    background: white;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 6px 25px #0000000b;
+    margin-bottom: 35px;
+}
+
+.filters input,
+.filters select {
+    min-width: 0;
+    padding: 13px;
+    border: 1px solid #d9e1d9;
+    border-radius: 10px;
+    background: white;
+    color: var(--dark);
+}
+
+.filters input:focus,
+.filters select:focus {
+    outline: 2px solid #92b9a0;
+}
+
+.reset-button {
+    background: var(--light-green);
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    color: var(--green);
+    font-weight: bold;
+}
+
+.reset-button:hover {
+    background: #dcebd8;
+}
+
+#status-message {
+    text-align: center;
+    color: var(--gray);
+}
+
+/* Картки тварин */
+
+.animals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.animal-card {
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 8px 28px #0000000c;
+    transition: transform 0.2s ease;
+}
+
+.animal-card:hover {
+    transform: translateY(-5px);
+}
+
+.animal-media {
+    height: 220px;
+    background: var(--light-green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.animal-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.animal-placeholder {
+    font-size: 75px;
+}
+
+.animal-details {
+    padding: 23px;
+}
+
+.animal-details h3 {
+    margin: 0 0 10px;
+    font-size: 25px;
+}
+
+.animal-details p {
+    color: var(--gray);
+    margin: 8px 0;
+}
+
+.animal-status {
+    display: inline-block;
+    margin-top: 12px;
+    background: var(--light-green);
+    color: var(--green);
+    border-radius: 30px;
+    padding: 5px 14px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.animal-link {
+    display: inline-block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: var(--green);
+}
+
+.animal-link:hover {
+    text-decoration: underline;
+}
+
+/* Про нас */
+
+.about-section {
+    padding: 80px 0;
+    background: var(--light-green);
+    text-align: center;
+}
+
+.about-content {
+    max-width: 650px;
+}
+
+.about-icon {
+    font-size: 50px;
+    color: var(--green);
+}
+
+.about-section h2 {
+    font-size: 35px;
+    margin: 15px 0;
+}
+
+.about-section p {
+    color: var(--gray);
+    font-size: 17px;
+}
+
+/* Нижня частина */
+
+.footer {
+    background: var(--green);
+    color: white;
+    padding: 25px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-content span {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.footer-content p {
+    margin: 0;
+}
+
+/* Адаптація під менші екрани */
+
+@media (max-width: 900px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-decoration {
+        min-height: 200px;
+    }
+
+    .filters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .animals-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .header-content,
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header nav {
+        gap: 15px;
+    }
+
+    .hero {
+        padding: 55px 0;
+    }
+
+    .hero-decoration {
+        font-size: 65px;
+    }
+
+    .section-heading h2,
+    .about-section h2 {
+        font-size: 28px;
+    }
+
+    .filters,
+    .animals-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .catalog-section {
+        padding: 55px 0;
+    }
+}

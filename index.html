@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawHome — Знайди свого друга</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-content">
+            <a href="#" class="logo">🐾 PawHome</a>
+
+            <nav>
+                <a href="#catalog">Знайти друга</a>
+                <a href="#about">Про нас</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <span class="hero-label">
+                        🐾 Маленькі лапки — велика любов
+                    </span>
+
+                    <h1>
+                        Твій новий найкращий
+                        <span>друг чекає на тебе</span>
+                    </h1>
+
+                    <p>
+                        Кожна тваринка заслуговує на теплий дім.
+                        Знайди свого улюбленця серед собак
+                        і котиків із притулків.
+                    </p>
+
+                    <a href="#catalog" class="primary-button">
+                        Знайти друга ♥
+                    </a>
+                </div>
+
+                <div class="hero-decoration" aria-hidden="true">
+                    🐶 🐱
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog-section" id="catalog">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-label">
+                        Знайомся з нашими друзями
+                    </span>
+                    <h2>Тваринки, які шукають дім</h2>
+                    <p>
+                        Можливо, саме тут на тебе чекає
+                        твій майбутній улюбленець.
+                    </p>
+                </div>
+
+                <form id="search-form" class="filters">
+                    <input
+                        type="search"
+                        id="search"
+                        placeholder="Ім'я або порода"
+                        aria-label="Пошук тварини"
+                    >
+
+                    <select id="species" aria-label="Вид тварини">
+                        <option value="">Усі тварини</option>
+                        <option value="dog">Собаки</option>
+                        <option value="cat">Котики</option>
+                    </select>
+
+                    <input
+                        type="text"
+                        id="city"
+                        placeholder="Місто"
+                        aria-label="Місто"
+                    >
+
+                    <button type="submit" class="search-button">
+                        Знайти
+                    </button>
+
+                    <button
+                        type="button"
+                        id="reset-button"
+                        class="reset-button"
+                    >
+                        Скинути
+                    </button>
+                </form>
+
+                <p id="status-message" role="status" aria-live="polite">
+                    Завантаження тваринок...
+                </p>
+
+                <div id="animals-grid" class="animals-grid">
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section" id="about">
+            <div class="container about-content">
+                <div class="about-icon" aria-hidden="true">♥</div>
+
+                <h2>Кожен заслуговує на дім</h2>
+
+                <p>
+                    PawHome допомагає людям знайомитися
+                    з тваринами із притулків.
+                    Наша мета — допомогти кожній тваринці
+                    знайти люблячу родину.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <span>🐾 PawHome</span>
+            <p>З любов'ю до кожної лапки ♥</p>
+        </div>
+    </footer>
+
+</body>
+</html>
