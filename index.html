@@ -7,6 +7,42 @@
     <title>PawHome — Знайди свого друга</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <style>
+        /* Лише оформлення авторизації; основний style.css не змінюємо. */
+        [hidden] { display: none !important; }
+        .auth-section { padding: 60px 20px; }
+        .auth-card {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px;
+            border: 1px solid #eee1da;
+            border-radius: 18px;
+            background: #fffaf7;
+        }
+        .auth-card h2 { margin-top: 0; }
+        .auth-form { display: flex; flex-direction: column; gap: 10px; }
+        .auth-form label { margin-top: 6px; font-weight: 600; }
+        .auth-form input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 11px 12px;
+            border: 1px solid #cfc6c1;
+            border-radius: 8px;
+            font: inherit;
+        }
+        .auth-form button { margin-top: 12px; cursor: pointer; }
+        .auth-form button:disabled { opacity: .6; cursor: wait; }
+        .auth-message { white-space: pre-line; color: #26663a; }
+        .auth-message.error { color: #a22c31; }
+        .auth-message:empty { display: none; }
+        .auth-switch { margin-top: 16px; }
+        .auth-profile p { overflow-wrap: anywhere; }
+        #nav-logout { cursor: pointer; font: inherit; }
+        #nav-username { font-weight: 600; }
+        #auth-feedback { padding: 12px 20px; text-align: center; color: #26663a; }
+        #auth-feedback.error { color: #a22c31; }
+        @media (max-width: 600px) { .auth-card { padding: 20px; } }
+    </style>
 </head>
 <body>
 
@@ -17,9 +53,16 @@
             <nav>
                 <a href="#catalog">Знайти друга</a>
                 <a href="#about">Про нас</a>
+                <a href="#login" id="nav-login">Увійти</a>
+                <a href="#register" id="nav-register">Реєстрація</a>
+                <a href="#profile" id="nav-profile" hidden>Особистий кабінет</a>
+                <span id="nav-username" hidden></span>
+                <button type="button" id="nav-logout" hidden>Вийти</button>
             </nav>
         </div>
     </header>
+
+    <p id="auth-feedback" role="status" aria-live="polite" hidden></p>
 
     <main>
         <section class="hero">
@@ -103,6 +146,78 @@
                 </p>
 
                 <div id="animals-grid" class="animals-grid">
+                </div>
+            </div>
+        </section>
+
+        <!-- Нові секції стосуються лише цієї лабораторної: JWT-авторизація. -->
+        <section class="auth-section" id="register" hidden>
+            <div class="container">
+                <div class="auth-card">
+                    <h2>Реєстрація 🐾</h2>
+                    <form id="register-form" class="auth-form">
+                        <label for="register-username">Ім'я користувача *</label>
+                        <input id="register-username" name="username" type="text"
+                               maxlength="150" autocomplete="username" required>
+
+                        <label for="register-first-name">Ім'я</label>
+                        <input id="register-first-name" name="first_name" type="text"
+                               maxlength="150" autocomplete="given-name">
+
+                        <label for="register-last-name">Прізвище</label>
+                        <input id="register-last-name" name="last_name" type="text"
+                               maxlength="150" autocomplete="family-name">
+
+                        <label for="register-email">Email *</label>
+                        <input id="register-email" name="email" type="email"
+                               maxlength="254" autocomplete="email" required>
+
+                        <label for="register-password">Пароль *</label>
+                        <input id="register-password" name="password" type="password"
+                               minlength="8" maxlength="128" autocomplete="new-password" required>
+
+                        <label for="register-confirm">Підтвердження пароля *</label>
+                        <input id="register-confirm" name="password_confirmation" type="password"
+                               minlength="8" maxlength="128" autocomplete="new-password" required>
+
+                        <button type="submit" class="primary-button">Зареєструватися</button>
+                        <p id="register-message" class="auth-message" role="status" aria-live="polite"></p>
+                    </form>
+                    <p class="auth-switch">Вже маєш акаунт? <a href="#login">Увійти</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="auth-section" id="login" hidden>
+            <div class="container">
+                <div class="auth-card">
+                    <h2>Вхід у PawHome 🐾</h2>
+                    <form id="login-form" class="auth-form">
+                        <label for="login-username">Ім'я користувача</label>
+                        <input id="login-username" name="username" type="text"
+                               autocomplete="username" required>
+
+                        <label for="login-password">Пароль</label>
+                        <input id="login-password" name="password" type="password"
+                               autocomplete="current-password" required>
+
+                        <button type="submit" class="primary-button">Увійти</button>
+                        <p id="login-message" class="auth-message" role="status" aria-live="polite"></p>
+                    </form>
+                    <p class="auth-switch">Ще немає акаунта? <a href="#register">Зареєструватися</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="auth-section" id="profile" hidden>
+            <div class="container">
+                <div class="auth-card auth-profile">
+                    <h2>Особистий кабінет 🐾</h2>
+                    <p><strong>Username:</strong> <span id="profile-username"></span></p>
+                    <p><strong>Ім'я:</strong> <span id="profile-first-name"></span></p>
+                    <p><strong>Прізвище:</strong> <span id="profile-last-name"></span></p>
+                    <p><strong>Email:</strong> <span id="profile-email"></span></p>
+                    <p id="profile-message" class="auth-message" role="status" aria-live="polite"></p>
                 </div>
             </div>
         </section>
